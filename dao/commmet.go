@@ -1,6 +1,5 @@
 package dao
 
-import "time"
 
 type Comment struct {
 	Id				int64
@@ -23,10 +22,10 @@ func DeleteComment(commentId int64) {
 }
 
 func GetCommnet(videoId int64) ([]Comment, error) {
-	var resluts []Comment
-	err := DB.Where("video_id = ?", videoId).Find(&resluts).Error
+	var results []Comment
+	err := DB.Where("video_id = ?", videoId).Find(&results).Error
 
 	Handle(err)
 
-	return resluts, err
+	return results, err
 }

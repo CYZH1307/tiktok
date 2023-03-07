@@ -7,17 +7,17 @@ type Follow struct {
 }
 
 // GetUserFocus 通过用户id返回用户的关注列表
-func GetUserFocus(id int64) ([]Follow, error) {
+func GetUserFocus(userId int64) ([]Follow, error) {
 	var follow []Follow
-	err := DB.Where("user_id = ?", id).Find(&follow).Error
+	err := DB.Where("user_id = ?", userId).Find(&follow).Error
 	Handle(err)
 	return follow, err
 }
 
 // GetUserFans 通过用户id返回用户的粉丝列表
-func GetUserFans(id int64) ([]Follow, error) {
+func GetUserFans(userId int64) ([]Follow, error) {
 	var follower []Follow
-	err := DB.Where("focus_id = ?", id).Find(&follower).Error
+	err := DB.Where("focus_id = ?", userId).Find(&follower).Error
 	Handle(err)
 	return follower, err
 }

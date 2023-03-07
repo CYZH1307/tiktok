@@ -18,16 +18,16 @@ func DeleteFavorite(data *Favorite) {
 }
 
 func GetFavoriteByUser(userId int64) ([]Favorite, error) {
-	var resluts []Favorite
-	err := DB.Where("user_id = ?", userId).Find(&resluts).Error
+	var results []Favorite
+	err := DB.Where("user_id = ?", userId).Find(&results).Error
 	Handle(err)
-	return resluts, err
+	return results, err
 }
 
 func GetFavoriteByVideo(videoId int64) ([]Favorite, error) {
-	var resluts []Favorite
-	err := DB.error("video_id = ?", videoId).Find(&resluts).Error
+	var results []Favorite
+	err := DB.error("video_id = ?", videoId).Find(&results).Error
 
 	Handle(err)
-	return resluts, err
+	return results, err
 }
